@@ -8,12 +8,15 @@ import HeaderLink from './HeaderLink.astro';
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="#about">Über mich</HeaderLink>
-			<HeaderLink href="#services">Doula Angebot</HeaderLink>
-			<HeaderLink href="#contact">Kontakt</HeaderLink>
+			<HeaderLink href="/about">Über mich</HeaderLink>
+			<HeaderLink href="/#services">Doula Angebot</HeaderLink>
+			<HeaderLink href="tel:0170-5580548">Kontakt</HeaderLink>
 		</div>
 		<div class="contact-info">
-			<a href="tel:0170-5580548" class="phone-link">📞 0170-5580548</a>
+			<a href="tel:0170-5580548" class="phone-link">
+				<span class="phone-icon">📞</span>
+				<span class="phone-number">0170-5580548</span>
+			</a>
 		</div>
 	</nav>
 </header>
@@ -51,24 +54,65 @@ import HeaderLink from './HeaderLink.astro';
 	.contact-info {
 		display: flex;
 		align-items: center;
+		margin-left: 2rem;
+		padding: 0.5rem 0;
 	}
 	
 	.phone-link {
-		background: #e74c3c;
-		color: white;
-		padding: 0.5rem 1rem;
-		border-radius: 25px;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		background: linear-gradient(135deg, #f0b7b3, #dd7e8d);
+		color: #1c1c1c;
+		padding: 1rem 1.5rem;
+		border-radius: 30px;
 		text-decoration: none;
-		font-weight: bold;
-		transition: background-color 0.3s ease;
+		font-weight: 600;
+		font-size: 0.95rem;
+		box-shadow: 0 2px 8px rgba(240, 183, 179, 0.3);
+		transition: all 0.3s ease;
+		border: 2px solid transparent;
+		margin: 0.5rem;
 	}
 	
 	.phone-link:hover {
-		background: #c0392b;
-		color: white;
+		background: linear-gradient(135deg, #dd7e8d, #f0b7b3);
+		box-shadow: 0 4px 12px rgba(240, 183, 179, 0.4);
+		transform: translateY(-1px);
+		border-color: rgba(221, 126, 141, 0.3);
+	}
+	
+	.phone-icon {
+		font-size: 1.1rem;
+		opacity: 0.9;
+	}
+	
+	.phone-number {
+		font-family: 'Quicksand', sans-serif;
+		letter-spacing: 0.5px;
 	}
 	
 	@media (max-width: 720px) {
+		.contact-info {
+			margin-left: 1rem;
+		}
+		
+		.phone-link {
+			padding: 0.75rem 1rem;
+			font-size: 0.85rem;
+			margin: 0.25rem;
+		}
+		
+		.phone-number {
+			display: none;
+		}
+		
+		.phone-icon {
+			font-size: 1.2rem;
+		}
+	}
+	
+	@media (max-width: 480px) {
 		.contact-info {
 			display: none;
 		}
