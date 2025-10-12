@@ -3,18 +3,29 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { Image } from 'astro:assets';
+import anneliHero from '../assets/images/anneli-hero.png';
+import anneliStillen from '../assets/images/anneli-stillen.jpg';
+import schwangerschaft from '../assets/images/schwangerschaft.jpg';
+import geburt from '../assets/images/geburt.png';
+import wochenbett from '../assets/images/wochenbett.jpg';
+import massagen from '../assets/images/massagen.jpg';
 ---
 
 <!doctype html>
 <html lang="de">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<Header />
 		<main>
 			<!-- Hero Section -->
 			<section class="hero">
+				<div class="hero-image">
+					<Image src={anneliHero} alt="Anneli Pfeifer - Mama-Moon-Doula" class="hero-img" />
+				</div>
 				<div class="hero-content">
 					<h1>Mama-Moon-Doula</h1>
 					<h2>Anneli Pfeifer</h2>
@@ -34,8 +45,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				
 				<p>Ich stärke und unterstütze Dich schon in der Schwangerschaft mit Massagen, Geburtseinstimmung und mentaler Vorbereitung, damit Du voller Vertrauen, selbstbestimmt und entspannt die Schwangerschaft erleben und Dich auf Deine Geburt vorbereiten kannst. Wir können gemeinsam das Wochenbett planen und Dein Umfeld über Deine Bedürfnisse in dieser Zeit informieren. Während der Geburt begleite und unterstütze ich Dich und Deine/n Partner/in und bin die gesamte Zeit der Geburt für euch da. Im Wochenbett koche ich Dir bei Bedarf gesunde Speisen und unterstütze Deine Heilung und Dein Ankommen als Mama mit Massagen, Bädern und einem offenen Herzen für Deine Geburtserlebnisse.</p>
 				
-				<div class="image-placeholder">
-					<p><em>Ich stille meine 3. Tochter, eine Woche nach unserer Hausgeburt</em></p>
+				<div class="about-image">
+					<Image src={anneliStillen} alt="Ich stille meine 3. Tochter, eine Woche nach unserer Hausgeburt" class="about-img" />
+					<p class="image-caption"><em>Ich stille meine 3. Tochter, eine Woche nach unserer Hausgeburt</em></p>
 				</div>
 				
 				<div class="cta">
@@ -50,14 +62,20 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 			<!-- Pregnancy Section -->
 			<section class="pregnancy">
-				<h2>Vorfreude in der Schwangerschaft</h2>
-				<h3>Step-on-the-moon</h3>
-				<p class="subtitle">Für einen guten Start</p>
-				
-				<p>Liebe Mama, wie schön dass Du zu mir gefunden hast!</p>
-				
-				<p>Wenn Du schwanger bist, liegt eine aufregende Zeit der Verwandlung vor Dir, vielleicht hast Du auch schon einen Teil der Schwangerschaft geschafft. Ich möchte Dich auf Deinem weiteren Weg begleiten und Dir bei der Vorbereitung auf die Geburt und in der ersten Zeit mit Deinem Baby zur Seite stehen.</p>
-				
+				<div class="pregnancy-content">
+					<div class="pregnancy-text">
+						<h2>Vorfreude in der Schwangerschaft</h2>
+						<h3>Step-on-the-moon</h3>
+						<p class="subtitle">Für einen guten Start</p>
+						
+						<p>Liebe Mama, wie schön dass Du zu mir gefunden hast!</p>
+						
+						<p>Wenn Du schwanger bist, liegt eine aufregende Zeit der Verwandlung vor Dir, vielleicht hast Du auch schon einen Teil der Schwangerschaft geschafft. Ich möchte Dich auf Deinem weiteren Weg begleiten und Dir bei der Vorbereitung auf die Geburt und in der ersten Zeit mit Deinem Baby zur Seite stehen.</p>
+					</div>
+					<div class="pregnancy-image">
+						<Image src={schwangerschaft} alt="Schwangerschaftsbegleitung" class="pregnancy-img" />
+					</div>
+				</div>
 				<div class="cta">
 					<p><strong>Interesse oder Fragen? Vereinbare jetzt einen Telefontermin</strong></p>
 				</div>
@@ -65,32 +83,45 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 			<!-- Birth Doula Section -->
 			<section class="birth-doula">
-				<h2>Birth Doula</h2>
-				<h3>Serving with Love</h3>
-				<h4>Deine liebevolle Begleitung während der Geburt</h4>
-				
-				<p>Als Doula begleite ich Dich während Deiner Geburt, egal für welchen Geburtsort Du Dich entscheidest. Zusätzlich zur Hebamme und ggf. Deinem Partner:in bin ich für Dich da, damit Du in den natürlichen Prozeß Deiner Geburt eintauchen kannst. Ich greife nicht in das Geburtsgeschehen ein sondern konzentriere mich ganz auf Deine Bedürfnisse. Ich kann schon zuhause bei Dir sein und Dich/euch dann in die Klinik oder das Geburtshaus begleiten, oder ich bin zusätzlich zu Deiner Hausgeburtshebamme bei Dir und unterstütze Dich mit Massagen, Meditationen, Düften oder was auch immer gerade nötig ist. Somit bin ich auch für Deine:n Partner:in eine Stütze und kann Ängste und Ungewissheit auffangen.</p>
+				<div class="birth-content">
+					<div class="birth-text">
+						<h2>Birth Doula</h2>
+						<h3>Serving with Love</h3>
+						<h4>Deine liebevolle Begleitung während der Geburt</h4>
+						
+						<p>Als Doula begleite ich Dich während Deiner Geburt, egal für welchen Geburtsort Du Dich entscheidest. Zusätzlich zur Hebamme und ggf. Deinem Partner:in bin ich für Dich da, damit Du in den natürlichen Prozeß Deiner Geburt eintauchen kannst. Ich greife nicht in das Geburtsgeschehen ein sondern konzentriere mich ganz auf Deine Bedürfnisse. Ich kann schon zuhause bei Dir sein und Dich/euch dann in die Klinik oder das Geburtshaus begleiten, oder ich bin zusätzlich zu Deiner Hausgeburtshebamme bei Dir und unterstütze Dich mit Massagen, Meditationen, Düften oder was auch immer gerade nötig ist. Somit bin ich auch für Deine:n Partner:in eine Stütze und kann Ängste und Ungewissheit auffangen.</p>
+					</div>
+					<div class="birth-image">
+						<Image src={geburt} alt="Geburtsbegleitung" class="birth-img" />
+					</div>
+				</div>
 			</section>
 
 			<!-- Postpartum Section -->
 			<section class="postpartum">
-				<h2>Postpartum Doula</h2>
-				<h3>Dein Mama-Moon</h3>
-				<h4>Meine besondere Begleitung für Dein Wochenbett</h4>
-				
-				<p>Jedem Anfang wohnt ein Zauber inne - nie in meinem Leben traf dieses Zitat treffender zu als bei jeder Geburt meiner Töchter. Eine Magie, die man mit nichts auf der Welt vergleichen kann.</p>
-				
-				<blockquote>
-					<p>"The moment a child is born, the mother is also born. She never existed before. The woman existed, but the mother, never. A mother is something absolutely new."</p>
-					<cite>RAJNEESH</cite>
-				</blockquote>
-				
-				<p>Es ist ein Neuanfang auf allen Ebenen des Lebens, der Weiblichkeit, der Partnerschaft.</p>
-				
-				<p>Unterstützung, Ruhe, gute nährende Wochenbettkost, Ölmassagen und Entspannung sind die Basis der heiligen ersten 42 Tage im Leben als Mutter. Es ist Zeit für seelische und körperliche Heilung. Ich möchte Dir helfen, Dir diese Zeit zu nehmen. Auch bei uns wurden Mütter noch vor 100 Jahren während und nach der Geburt von Frauen aus Familie oder Dorf unterstützt. Leider ist diese Tradition verloren gegangen.</p>
-				
-				<p>Wenn Du bereits Mutter bist ist es mindestens so wichtig, sich gut auf ein Wochenbett mit so viel Rückzug wie möglich einzustimmen.</p>
-				
+				<div class="postpartum-content">
+					<div class="postpartum-text">
+						<h2>Postpartum Doula</h2>
+						<h3>Dein Mama-Moon</h3>
+						<h4>Meine besondere Begleitung für Dein Wochenbett</h4>
+						
+						<p>Jedem Anfang wohnt ein Zauber inne - nie in meinem Leben traf dieses Zitat treffender zu als bei jeder Geburt meiner Töchter. Eine Magie, die man mit nichts auf der Welt vergleichen kann.</p>
+						
+						<blockquote>
+							<p>"The moment a child is born, the mother is also born. She never existed before. The woman existed, but the mother, never. A mother is something absolutely new."</p>
+							<cite>RAJNEESH</cite>
+						</blockquote>
+						
+						<p>Es ist ein Neuanfang auf allen Ebenen des Lebens, der Weiblichkeit, der Partnerschaft.</p>
+						
+						<p>Unterstützung, Ruhe, gute nährende Wochenbettkost, Ölmassagen und Entspannung sind die Basis der heiligen ersten 42 Tage im Leben als Mutter. Es ist Zeit für seelische und körperliche Heilung. Ich möchte Dir helfen, Dir diese Zeit zu nehmen. Auch bei uns wurden Mütter noch vor 100 Jahren während und nach der Geburt von Frauen aus Familie oder Dorf unterstützt. Leider ist diese Tradition verloren gegangen.</p>
+						
+						<p>Wenn Du bereits Mutter bist ist es mindestens so wichtig, sich gut auf ein Wochenbett mit so viel Rückzug wie möglich einzustimmen.</p>
+					</div>
+					<div class="postpartum-image">
+						<Image src={wochenbett} alt="Wochenbettbegleitung" class="postpartum-img" />
+					</div>
+				</div>
 				<div class="cta">
 					<p><strong>Interesse oder Fragen? Vereinbare jetzt einen Telefontermin</strong></p>
 				</div>
@@ -111,28 +142,35 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 			<!-- Massages & Belly Binding Section -->
 			<section class="massages">
-				<h3>Massagen & Belly-Binding</h3>
-				<h4>In guten Händen - Weil Du es wert bist</h4>
-				<h5>Körperarbeit für Heilung und Wohlbefinden</h5>
-				
-				<p>Entspannende Ölmassagen sind im Ayurveda ein wichtiger Bestandteil der Begleitung der Mutter im Wochenbett.</p>
-				
-				<p><strong>Wohltuende Massagen:</strong></p>
-				<ul>
-					<li>Schwangerenmassage</li>
-					<li>Rückbildungsmassage des Bauchraums</li>
-					<li>Ganzkörperölmassage (Mama-Abhyanga)</li>
-					<li>Milchstrich zur Unterstützung des Milchflusses</li>
-				</ul>
-				
-				<p>Belly-Binding ist in vielen Kulturen verankert und wird heute noch praktiziert.</p>
-				
-				<p><strong>Vorteile des Belly Bindings:</strong></p>
-				<ul>
-					<li>Schnellere Rückbildung - weniger Probleme mit Rektusdiastase</li>
-					<li>Schneller eine kraftvolle Körpermitte - weniger Rücken- und Nackenschmerzen</li>
-					<li>In Kombination mit Beckenbodenübungen - Vorbeugung von Problemen mit Inkontinenz im Alter</li>
-				</ul>
+				<div class="massages-content">
+					<div class="massages-text">
+						<h3>Massagen & Belly-Binding</h3>
+						<h4>In guten Händen - Weil Du es wert bist</h4>
+						<h5>Körperarbeit für Heilung und Wohlbefinden</h5>
+						
+						<p>Entspannende Ölmassagen sind im Ayurveda ein wichtiger Bestandteil der Begleitung der Mutter im Wochenbett.</p>
+						
+						<p><strong>Wohltuende Massagen:</strong></p>
+						<ul>
+							<li>Schwangerenmassage</li>
+							<li>Rückbildungsmassage des Bauchraums</li>
+							<li>Ganzkörperölmassage (Mama-Abhyanga)</li>
+							<li>Milchstrich zur Unterstützung des Milchflusses</li>
+						</ul>
+						
+						<p>Belly-Binding ist in vielen Kulturen verankert und wird heute noch praktiziert.</p>
+						
+						<p><strong>Vorteile des Belly Bindings:</strong></p>
+						<ul>
+							<li>Schnellere Rückbildung - weniger Probleme mit Rektusdiastase</li>
+							<li>Schneller eine kraftvolle Körpermitte - weniger Rücken- und Nackenschmerzen</li>
+							<li>In Kombination mit Beckenbodenübungen - Vorbeugung von Problemen mit Inkontinenz im Alter</li>
+						</ul>
+					</div>
+					<div class="massages-image">
+						<Image src={massagen} alt="Massagen und Belly-Binding" class="massages-img" />
+					</div>
+				</div>
 				
 				<div class="disclaimer">
 					<p><strong>WICHTIG!</strong> Meine Leistungen dienen ausschließlich dem seelischen und körperlichen Wohlbefinden und ersetzen keinesfalls die Nachsorge und Betreuung durch eine Hebamme. Es sind private, freiwillig in Anspruch genommene Leistungen und unterstützen die Erholung nach der Geburt.</p>
@@ -156,29 +194,57 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 <style>
 	.hero {
-		text-align: center;
-		padding: 4rem 0;
-		background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+		display: flex;
+		align-items: center;
+		min-height: 80vh;
+		background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('/images/massagen.jpg');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
 		margin: -3rem -1rem 0 -1rem;
 		padding: 6rem 2rem 4rem 2rem;
+	}
+	
+	.hero-image {
+		flex: 1;
+		text-align: center;
+		margin-right: 3rem;
+	}
+	
+	.hero-img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 15px;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+	}
+	
+	.hero-content {
+		flex: 1;
+		text-align: left;
 	}
 	
 	.hero h1 {
 		font-size: 3.5rem;
 		margin-bottom: 0.5rem;
-		color: #2c3e50;
+		color: #2f8999;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
 	}
-	
+
 	.hero h2 {
 		font-size: 2.5rem;
 		margin-bottom: 1rem;
-		color: #34495e;
+		color: #2f8999;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
 	}
-	
+
 	.hero h3 {
 		font-size: 1.8rem;
 		margin-bottom: 0.5rem;
-		color: #7f8c8d;
+		color: #616d69;
+		font-family: 'Quicksand', sans-serif;
+		font-weight: 400;
 	}
 	
 	.location {
@@ -206,28 +272,59 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		padding: 2rem 0;
 	}
 	
-	.about h2, .pregnancy h2, .birth-doula h2, .postpartum h2 {
-		color: #2c3e50;
-		border-bottom: 3px solid #e74c3c;
-		padding-bottom: 0.5rem;
+	.pregnancy-content, .birth-content, .postpartum-content, .massages-content {
+		display: flex;
+		align-items: center;
+		gap: 3rem;
 		margin-bottom: 2rem;
 	}
 	
-	.about h3, .pregnancy h3, .birth-doula h3, .postpartum h3 {
-		color: #34495e;
-		margin-bottom: 1rem;
+	.pregnancy-text, .birth-text, .postpartum-text, .massages-text {
+		flex: 2;
 	}
 	
+	.pregnancy-image, .birth-image, .postpartum-image, .massages-image {
+		flex: 1;
+		text-align: center;
+	}
+	
+	.pregnancy-img, .birth-img, .postpartum-img, .massages-img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 15px;
+		box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+	}
+	
+	.about h2, .pregnancy h2, .birth-doula h2, .postpartum h2 {
+		color: #2f8999;
+		border-bottom: 3px solid #dd7e8d;
+		padding-bottom: 0.5rem;
+		margin-bottom: 2rem;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
+	}
+
+	.about h3, .pregnancy h3, .birth-doula h3, .postpartum h3 {
+		color: #2f8999;
+		margin-bottom: 1rem;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
+	}
+
 	.about h4, .birth-doula h4, .postpartum h4 {
-		color: #7f8c8d;
+		color: #616d69;
 		font-size: 1.3rem;
 		margin-bottom: 1.5rem;
+		font-family: 'Quicksand', sans-serif;
+		font-weight: 400;
 	}
-	
+
 	.about h5, .postpartum-cooking h5, .massages h5 {
-		color: #95a5a6;
+		color: #dd7e8d;
 		font-size: 1.1rem;
 		margin-bottom: 1rem;
+		font-family: 'Quicksand', sans-serif;
+		font-weight: 400;
 	}
 	
 	.subtitle {
@@ -236,22 +333,33 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		margin-bottom: 2rem;
 	}
 	
-	.image-placeholder {
-		background: #ecf0f1;
-		padding: 2rem;
-		border-radius: 10px;
-		margin: 2rem 0;
+	.about-image {
 		text-align: center;
-		border: 2px dashed #bdc3c7;
+		margin: 2rem 0;
+	}
+	
+	.about-img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 15px;
+		box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+		margin-bottom: 1rem;
+	}
+	
+	.image-caption {
+		font-style: italic;
+		color: #7f8c8d;
+		margin: 0;
 	}
 	
 	.cta {
-		background: #e8f5e8;
+		background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 		padding: 1.5rem;
 		border-radius: 10px;
 		margin: 2rem 0;
 		text-align: center;
-		border-left: 5px solid #27ae60;
+		border-left: 5px solid #2f8999;
+		box-shadow: 0 4px 15px rgba(47, 137, 153, 0.1);
 	}
 	
 	.cta p {
@@ -260,11 +368,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 	
 	blockquote {
-		background: #f8f9fa;
+		background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 		padding: 1.5rem;
-		border-left: 5px solid #3498db;
+		border-left: 5px solid #2f8999;
 		margin: 2rem 0;
 		font-style: italic;
+		box-shadow: 0 4px 15px rgba(47, 137, 153, 0.1);
 	}
 	
 	blockquote cite {
@@ -297,11 +406,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 	
 	.final-message {
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		background: linear-gradient(135deg, #2f8999 0%, #616d69 100%);
 		color: white;
 		padding: 3rem 2rem;
 		border-radius: 15px;
 		margin: 4rem 0;
+		box-shadow: 0 8px 30px rgba(47, 137, 153, 0.3);
 	}
 	
 	.final-message h3 {
@@ -315,6 +425,21 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 	
 	@media (max-width: 720px) {
+		.hero {
+			flex-direction: column;
+			text-align: center;
+			padding: 4rem 1rem 3rem 1rem;
+		}
+		
+		.hero-image {
+			margin-right: 0;
+			margin-bottom: 2rem;
+		}
+		
+		.hero-content {
+			text-align: center;
+		}
+		
 		.hero h1 {
 			font-size: 2.5rem;
 		}
@@ -327,8 +452,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			font-size: 1.5rem;
 		}
 		
-		.hero {
-			padding: 4rem 1rem 3rem 1rem;
+		.pregnancy-content, .birth-content, .postpartum-content, .massages-content {
+			flex-direction: column;
+			gap: 2rem;
+		}
+		
+		.pregnancy-text, .birth-text, .postpartum-text, .massages-text {
+			order: 1;
+		}
+		
+		.pregnancy-image, .birth-image, .postpartum-image, .massages-image {
+			order: 2;
 		}
 	}
 </style>
