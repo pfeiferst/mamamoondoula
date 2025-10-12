@@ -1,63 +1,313 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import { Image } from 'astro:assets';
+import anneliStillen from '../assets/images/anneli-stillen.jpg';
+import anneliHero from '../assets/images/anneli-hero.png';
 import Layout from '../layouts/BlogPost.astro';
 ---
 
 <Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
+	title="Über mich - Anneli Pfeifer"
+	description="Ayurvedische Postpartum Doula und Déu Doula - Begleitung für Schwangerschaft, Geburt und Wochenbett"
 	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
+	heroImage={anneliStillen}
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+	<div class="about-content">
+		<section class="hero-section">
+			<div class="hero-text">
+				<h1>Mama-Moon-Doula</h1>
+				<h2>Anneli Pfeifer</h2>
+				<h3>Ayurvedische Postpartum Doula</h3>
+				<h3>Déu Doula</h3>
+			</div>
+		</section>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+		<section class="main-intro">
+			<h2>Dein Mama-Moon - weil jede Mutter es wert ist</h2>
+			<p>
+				Ich möchte alle Frauen ermutigen, sich mit selbstbestimmter Geburt zu beschäftigen. 
+				Informiert zu sein nimmt viele von den heute geschürten Ängsten. Die Intuition als 
+				Frau und Mutter sollte an erster Stelle stehen. Und für die so wertvolle Zeit des 
+				Wochenbetts - die heiligen 42 Tage - für sich einzustehen und sich die optimale 
+				Erholung zu gönnen. Die Ausbildung zur Postpartum Ayurdoula oder "Hüterin der heiligen 
+				Zeit" hat mir nochmal gezeigt, wie wichtig und wunderschön diese erste Zeit des 
+				Ankommens mit dem neuen Baby ist. Die Mutter als Königin der Geburt sollte im 
+				Vordergrund stehen.
+			</p>
+		</section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+		<section class="about-me">
+			<h2>Über mich</h2>
+			<div class="content-with-image">
+				<div class="text-content">
+					<p>
+						Mein Name ist Anneli Pfeifer, ich bin Mama von 3 wundervollen Töchtern und trage 
+						ein kleines Sternchen im Herzen. Beruflich bin ich bisher als Betriebswirtin im 
+						Online-Marketing tätig. Ich koche leidenschaftlich gerne. Meine Kinder würden 
+						mich wahrscheinlich als Gesundheits-Apostel bezeichnen. Gesundes Essen ist schon 
+						seit 20 Jahren ein wichtiges Thema für mich.
+					</p>
+					<p>
+						Ich praktiziere seit fast 20 Jahren Yoga, so auch in allen 4 Schwangerschaften. 
+						Es hat mir immer unglaublich gut getan. Nach meiner vierten Geburt, die als 
+						Hausgeburt zu einem noch schöneren Erlebnis wurde als die ersten Geburten, hat 
+						mich endgültig das Thema Geburt und Frauenheilkunde gepackt.
+					</p>
+					<p>
+						Ich habe die Ausbildung zur "Hüterin der heiligen Zeit", ayurvedische Wochenbett 
+						Doula bei Akasha Ayurveda gemacht, und eine Ausbildung bei Geburtsgefährtin zur 
+						Wochenbett Doula mit dem Schwerpunkt auf Körperarbeit mit Massagen und Rebozo. 
+						Dank der wunderbaren Ausbildung zur Déu Doula kann ich jetzt auch Frauen in 
+						Schwangerschaft und bei der Geburt mit tiefer Liebe und Wissen begleiten. Die 
+						wunderbar geborgene, einfühlsame, fließende Schwangerschaftsmassage habe ich bei 
+						der wunderbaren Maj Übelacker bei Massage München gelernt. Um die Rebozo-Techniken 
+						aus Mexico so richtig zu erleben und erspüren, habe ich 2022 bei einer erfahrenen 
+						mexikanischen Hebamme und Rebozo-Spezialistin - Angelina Martinez-Miranda - noch 
+						eine Fortbildung mit holistischen, traditionellen Techniken der Körperarbeit 
+						während Kinderwunsch, Schwangerschaft, Geburt und Wochenbett gemacht.
+					</p>
+				</div>
+				<div class="image-content">
+					<Image 
+						src={anneliHero} 
+						alt="Anneli Pfeifer - Mama-Moon-Doula" 
+						class="profile-image"
+						width={400}
+						height={500}
+					/>
+				</div>
+			</div>
+		</section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+		<section class="ayurveda-section">
+			<h2>Der Ayurveda und was ich von ihm lerne</h2>
+			<p>
+				Der Ayurveda lehrt mich täglich Neues. Die ayurvedische Ernährung tut mir und der ganzen 
+				Familie gut. Wir setzen sie so um, wie es zu uns passt, ohne Zwang. Dank der Achtsamkeit 
+				und dem Wohlwollen mir gegenüber habe ich gelernt, mich so anzunehmen wie ich bin. Eine 
+				Konstitution (Dosha) geht auch mit Charaktereigenschaften einher, die typisch für einen 
+				sind. Ich schaffe es jetzt, diese Eigenschaften als Stärken zu sehen. Selbstliebe darf 
+				fließen. Gerade uns Frauen kann diese Philosophie helfen, zu uns zu finden, unsere 
+				Weiblichkeit zu leben. Jede so, wie es ihrer Individualität und ihrem Dosha entspricht. 
+				Bei Rosenberg Ayurveda findet ihr einen schönen Überblick über die Eigenschaften. Als 
+				Mama helfen mir die Doshas auch, meine Kinder besser zu verstehen und ebenfalls mit 
+				ihren Eigenheiten anzunehmen.
+			</p>
+			<p>
+				Besonders dankbar bin ich Stefanie Workman von Akasha Ayurveda, die mir mit ihrer tiefen 
+				Liebe zum Ayurveda und ihrem umfangreichen Wissen mit ihrer Ausbildung zur Ayur-Doula 
+				einen wunderbaren neuen Weg gezeigt hat. So können meine Doula-Schwestern und ich als 
+				"Hüterin der heiligen Zeit" eine Wochenbett-Kultur in die Welt tragen, die Müttern Ruhe 
+				und Heilung ermöglicht.
+			</p>
+			<p>
+				Ich danke auch meinem Mann und den Kindern für ihr Verständnis für all meine - manchmal 
+				sehr Vata-geprägt sprunghaften - Ideen und Wünsche und eure Bereitschaft, gesunde 
+				Ernährung als einen der wichtigsten Werte unserer Familie anzunehmen. Ohne eure 
+				Unterstützung hätte ich es nicht geschafft, einen neuen beruflichen Weg einzuschlagen.
+			</p>
+		</section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+		<section class="moon-stars-section">
+			<h2>Moon and Stars</h2>
+			<h3>Mein Anliegen auch für Sternenmamas da zu sein</h3>
+			<div class="quote">
+				<p>"The Love for your child flows to the moon and back - no matter if it is by your side or made it's way to the stars"</p>
+			</div>
+			<p>
+				Ein weiteres Herzensthema von mir ist es, Frauen bei ihrer kleinen Geburt in der 
+				Frühschwangerschaft zur begleiten. Wenn man beim Frauenarzt sitzt und das Herzchen 
+				des kleinen Gummibärchens auf dem Ultraschall nicht schlägt, bricht - egal wie früh in 
+				der Schwangerschaft - für jede Frau eine Welt zusammen. Sobald ein Kind entsteht ist man 
+				mit der kleinen Seele verbunden, erlebt Vorfreude, spürt wie sich der Körper verändert. 
+				Leider ist die Gynäkologie immer noch sehr schnell darin, die Frauen zur Curretage 
+				(Ausschabung - furchtbar erniedrigender Begriff) ins Krankenhaus zu schicken. Oft zu 
+				schnell, ohne ihnen Alternativen aufzuzeigen. So war es auch bei mir. Ich bin meiner 
+				Freundin unendlich dankbar, die mir von ihrem Erlebnis der kleinen Geburt zuhause 
+				erzählte und mich ermutigte, einfach auf den natürlichen Lauf der Dinge zu warten. Für 
+				mich hat dieser Prozeß, die Schwangerschaft natürlich abschließen zu können so wie die 
+				Natur es entscheidet, einen großen Beitrag geleistet, das Vertrauen in meinen Körper 
+				nicht zu verlieren. Nun möchte ich andere Frauen darin bestärken, die kleine Geburt in 
+				Geborgenheit zuhause als Option in Betracht zu ziehen (solange medizinisch nichts 
+				dagegen spricht), wenn sie von einer Missed Abortion betroffen sind. Ich begleite und 
+				unterstütze sie dabei, dass sie sich Zeit für sich und die körperliche und seelische 
+				Heilung nehmen können. Eine Hebamme darf ebenfalls hinzu gezogen werden. Aber darüber 
+				hinaus - oder falls die Hebamme keine Zeit hat die gesamte Dauer anwesend zu sein, 
+				begleite ich die Frauen bei diesen besonderen Geburten. Kareen hat auf into-life sämtliche 
+				Möglichkeiten im Falle einer Fehlgeburt sehr reflektiert beschrieben.
+			</p>
+		</section>
+
+		<section class="contact-section">
+			<h2>Interesse an einem Kennenlern-Gespräch?</h2>
+			<div class="contact-info">
+				<p><strong>Anneli Pfeifer</strong></p>
+				<p>Kardinal-Wendel-Str. 22</p>
+				<p>81929 München</p>
+				<p>Tel: 0170-5580548</p>
+				<p>Email: anneli@mama-moon-doula.com</p>
+			</div>
+			<p class="contact-cta">
+				<strong>Vereinbare ein Telefonat, gerne auch kurzfristig</strong>
+			</p>
+		</section>
+	</div>
+
+	<style>
+		.about-content {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+
+		.hero-section {
+			text-align: center;
+			margin-bottom: 3rem;
+		}
+
+		.hero-text h1 {
+			font-size: 2.5rem;
+			color: #8B5A3C;
+			margin-bottom: 0.5rem;
+		}
+
+		.hero-text h2 {
+			font-size: 2rem;
+			color: #A67C52;
+			margin-bottom: 0.5rem;
+		}
+
+		.hero-text h3 {
+			font-size: 1.5rem;
+			color: #8B5A3C;
+			margin-bottom: 0.5rem;
+		}
+
+		.main-intro {
+			margin-bottom: 3rem;
+		}
+
+		.main-intro h2 {
+			color: #8B5A3C;
+			font-size: 1.8rem;
+			margin-bottom: 1rem;
+		}
+
+		.about-me {
+			margin-bottom: 3rem;
+		}
+
+		.about-me h2 {
+			color: #8B5A3C;
+			font-size: 1.8rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.content-with-image {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			gap: 2rem;
+			align-items: start;
+		}
+
+		.text-content p {
+			margin-bottom: 1rem;
+			line-height: 1.6;
+		}
+
+		.profile-image {
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		}
+
+		.ayurveda-section {
+			margin-bottom: 3rem;
+		}
+
+		.ayurveda-section h2 {
+			color: #8B5A3C;
+			font-size: 1.8rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.ayurveda-section p {
+			margin-bottom: 1rem;
+			line-height: 1.6;
+		}
+
+		.moon-stars-section {
+			margin-bottom: 3rem;
+		}
+
+		.moon-stars-section h2 {
+			color: #8B5A3C;
+			font-size: 1.8rem;
+			margin-bottom: 1rem;
+		}
+
+		.moon-stars-section h3 {
+			color: #A67C52;
+			font-size: 1.4rem;
+			margin-bottom: 1rem;
+		}
+
+		.quote {
+			background-color: #F5F5F5;
+			padding: 1.5rem;
+			border-left: 4px solid #8B5A3C;
+			margin: 1.5rem 0;
+			font-style: italic;
+		}
+
+		.quote p {
+			margin: 0;
+			font-size: 1.1rem;
+			color: #666;
+		}
+
+		.contact-section {
+			background-color: #F9F9F9;
+			padding: 2rem;
+			border-radius: 10px;
+			text-align: center;
+		}
+
+		.contact-section h2 {
+			color: #8B5A3C;
+			font-size: 1.8rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.contact-info {
+			margin-bottom: 1.5rem;
+		}
+
+		.contact-info p {
+			margin-bottom: 0.5rem;
+			font-size: 1.1rem;
+		}
+
+		.contact-cta {
+			font-size: 1.2rem;
+			color: #8B5A3C;
+		}
+
+		@media (max-width: 768px) {
+			.content-with-image {
+				grid-template-columns: 1fr;
+				gap: 1rem;
+			}
+			
+			.hero-text h1 {
+				font-size: 2rem;
+			}
+			
+			.hero-text h2 {
+				font-size: 1.5rem;
+			}
+			
+			.hero-text h3 {
+				font-size: 1.2rem;
+			}
+		}
+	</style>
 </Layout>

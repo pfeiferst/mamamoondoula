@@ -13,11 +13,9 @@ import HeaderLink from './HeaderLink.astro';
 		</div>
 		<div class="contact-info">
 			<a href="https://calendly.com/your-calendly-link" class="calendly-link" target="_blank" rel="noopener noreferrer">
-				<span class="calendly-icon">📅</span>
 				<span class="calendly-text">Termin buchen</span>
 			</a>
 			<a href="tel:0170-5580548" class="phone-link">
-				<span class="phone-icon">📞</span>
 				<span class="phone-number">0170-5580548</span>
 			</a>
 		</div>
@@ -66,29 +64,23 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		background: linear-gradient(135deg, #f0b7b3, #dd7e8d);
-		color: #1c1c1c;
+		background: transparent;
+		color: var(--black);
 		padding: 1rem 1.5rem;
 		border-radius: 30px;
 		text-decoration: none;
 		font-weight: 600;
 		font-size: 0.95rem;
-		box-shadow: 0 2px 8px rgba(240, 183, 179, 0.3);
 		transition: all 0.3s ease;
-		border: 2px solid transparent;
+		border: none;
 		margin: 0.5rem;
 	}
 	
 	.phone-link:hover {
-		background: linear-gradient(135deg, #dd7e8d, #f0b7b3);
-		box-shadow: 0 4px 12px rgba(240, 183, 179, 0.4);
+		background: var(--accent);
+		color: white;
 		transform: translateY(-1px);
-		border-color: rgba(221, 126, 141, 0.3);
-	}
-	
-	.phone-icon {
-		font-size: 1.1rem;
-		opacity: 0.9;
+		padding: 1rem 2rem;
 	}
 	
 	.phone-number {
@@ -100,29 +92,23 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		background: linear-gradient(135deg, #4a90e2, #357abd);
-		color: white;
+		background: transparent;
+		color: var(--black);
 		padding: 1rem 1.5rem;
 		border-radius: 30px;
 		text-decoration: none;
 		font-weight: 600;
 		font-size: 0.95rem;
-		box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
 		transition: all 0.3s ease;
-		border: 2px solid transparent;
+		border: none;
 		margin: 0.5rem;
 	}
 	
 	.calendly-link:hover {
-		background: linear-gradient(135deg, #357abd, #4a90e2);
-		box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+		background: var(--accent);
+		color: white;
 		transform: translateY(-1px);
-		border-color: rgba(53, 122, 189, 0.3);
-	}
-	
-	.calendly-icon {
-		font-size: 1.1rem;
-		opacity: 0.9;
+		padding: 1rem 2rem;
 	}
 	
 	.calendly-text {
@@ -145,10 +131,6 @@ import HeaderLink from './HeaderLink.astro';
 			display: none;
 		}
 		
-		.calendly-icon {
-			font-size: 1.2rem;
-		}
-		
 		.phone-link {
 			padding: 0.75rem 1rem;
 			font-size: 0.85rem;
@@ -157,10 +139,6 @@ import HeaderLink from './HeaderLink.astro';
 		
 		.phone-number {
 			display: none;
-		}
-		
-		.phone-icon {
-			font-size: 1.2rem;
 		}
 	}
 	
