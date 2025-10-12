@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { Image } from 'astro:assets';
-import anneliHero from '../assets/images/anneli-hero.png';
+import mamaMoonDoulaLogo from '../assets/images/mama-moon-doula-logo.png';
 import anneliStillen from '../assets/images/anneli-stillen.jpg';
 import schwangerschaft from '../assets/images/schwangerschaft.jpg';
 import geburt from '../assets/images/geburt.png';
@@ -24,7 +24,7 @@ import massagen from '../assets/images/massagen.jpg';
 			<!-- Hero Section -->
 			<section class="hero">
 				<div class="hero-image">
-					<Image src={anneliHero} alt="Anneli Pfeifer - Mama-Moon-Doula" class="hero-img" />
+					<Image src={mamaMoonDoulaLogo} alt="MAMA MOON DOULA Logo - Anneli Pfeifer" class="hero-img" />
 				</div>
 				<div class="hero-content">
 					<h1>Mama-Moon-Doula</h1>
@@ -178,6 +178,7 @@ import massagen from '../assets/images/massagen.jpg';
 				
 				<div class="cta">
 					<p><strong>Interesse oder Fragen? Vereinbare jetzt einen Telefontermin</strong></p>
+					<p style="margin-top: 1rem;"><a href="/schwangeren-massage" style="color: #2f8999; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #2f8999; border-radius: 5px; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#2f8999'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#2f8999';">Anfrage für Schwangeren-Massage</a></p>
 				</div>
 			</section>
 
