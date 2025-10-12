@@ -63,6 +63,9 @@ This theme is based off of the lovely [Bear Blog](https://github.com/HermanMarti
 
 # mamamoondoula
 https://www.mama-moon-doula.com
+
+Deployment bei Vercel: https://mamamoondoula.vercel.app/
+
 Dieses Projekt wurde mit den folgenden Tools und Services entwickelt:
 
 - **GitHub Repo:** [https://github.com/pfeiferst/mamamoondoula](https://github.com/pfeiferst/mamamoondoula)
