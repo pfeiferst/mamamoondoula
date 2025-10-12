@@ -60,3 +60,24 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 ## Credit
 
 This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+
+# mamamoondoula
+https://www.mama-moon-doula.com
+Dieses Projekt wurde mit den folgenden Tools und Services entwickelt:
+
+- **GitHub Repo:** [https://github.com/pfeiferst/mamamoondoula](https://github.com/pfeiferst/mamamoondoula)
+- **Online IDE:** [studio.firebase von google](https://studio.firebase.google.com)
+- **Entwicklungsframework:** [Astro](https://astro.build)
+- **Hosting:** [Vercel](https://vercel.com)
+
+## Weitere Infos
+
+- [UI Docs](https://uidocs.seibert.group/installation/beginner/)
+
+## Befehle
+
+| Befehl | Aktion |
+| :--- | :--- |
+| `pnpm i` | Installiert alle notwendigen Pakete und Abhängigkeiten. |
+| `pnpm dev` | Startet den lokalen Entwicklungsserver. |
+| Start working at http://localhost:4321/ (correct URI is provided in console) |
