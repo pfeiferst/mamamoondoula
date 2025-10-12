@@ -1,0 +1,280 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SchwangerenMassageForm from '../components/SchwangerenMassageForm.astro';
+import { Image } from 'astro:assets';
+import massagen from '../assets/images/massagen.jpg';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title="Schwangeren-Massage Anfrage - Mama-Moon-Doula" description="Anfrage für eine wohltuende Schwangeren-Massage bei Anneli Pfeifer in München und Umgebung" />
+		<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- Hero Section -->
+			<section class="hero">
+				<div class="hero-content">
+					<h1>Schwangeren-Massage</h1>
+					<h2>Wohltuende Entspannung für Sie und Ihr Baby</h2>
+					<p class="subtitle">Anneli Pfeifer - Ihre Mama-Moon-Doula in München und Umgebung</p>
+				</div>
+				<div class="hero-image">
+					<Image src={massagen} alt="Schwangeren-Massage" class="hero-img" />
+				</div>
+			</section>
+
+			<!-- Form Section -->
+			<section class="form-section">
+				<div class="container">
+					<div class="form-intro">
+						<h2>Anfrage für Schwangeren-Massage</h2>
+						<p>Füllen Sie das Formular aus, um eine Anfrage für eine wohltuende Schwangeren-Massage zu stellen. Ich melde mich schnellstmöglich bei Ihnen zurück.</p>
+					</div>
+					
+					<SchwangerenMassageForm />
+				</div>
+			</section>
+
+			<!-- Info Section -->
+			<section class="info-section">
+				<div class="container">
+					<h2>Über die Schwangeren-Massage</h2>
+					
+					<div class="info-grid">
+						<div class="info-card">
+							<h3>Wohltuende Entspannung</h3>
+							<p>Eine Schwangeren-Massage kann Verspannungen lösen, Stress abbauen und das Wohlbefinden von Mutter und Baby steigern.</p>
+						</div>
+						
+						<div class="info-card">
+							<h3>Spezielle Techniken</h3>
+							<p>Ich verwende sanfte, speziell für Schwangere angepasste Massagetechniken, die die besonderen Bedürfnisse berücksichtigen.</p>
+						</div>
+						
+						<div class="info-card">
+							<h3>Entspannende Öle</h3>
+							<p>Mit hochwertigen, schwangerschaftsgeeigneten Ölen für eine besonders wohltuende und entspannende Erfahrung.</p>
+						</div>
+						
+						<div class="info-card">
+							<h3>Individuelle Betreuung</h3>
+							<p>Jede Massage wird individuell auf Ihre Bedürfnisse und Ihre Schwangerschaftswoche angepasst.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Info -->
+			<section class="contact-info">
+				<div class="container">
+					<h2>Kontakt & Terminvereinbarung</h2>
+					<div class="contact-details">
+						<div class="contact-item">
+							<h3>Anneli Pfeifer</h3>
+							<p>Mama-Moon-Doula</p>
+						</div>
+						<div class="contact-item">
+							<h3>E-Mail</h3>
+							<p>anneli@mama-moon-doula.com</p>
+						</div>
+						<div class="contact-item">
+							<h3>Einsatzgebiet</h3>
+							<p>München und Umgebung</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		display: flex;
+		align-items: center;
+		min-height: 60vh;
+		background: linear-gradient(135deg, #2f8999 0%, #616d69 100%);
+		color: white;
+		padding: 4rem 2rem;
+		margin: -3rem -1rem 0 -1rem;
+	}
+
+	.hero-content {
+		flex: 1;
+		padding-right: 3rem;
+	}
+
+	.hero-image {
+		flex: 1;
+		text-align: center;
+	}
+
+	.hero-img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 15px;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+	}
+
+	.hero h1 {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
+	}
+
+	.hero h2 {
+		font-size: 1.8rem;
+		margin-bottom: 1rem;
+		font-family: 'Quicksand', sans-serif;
+		font-weight: 400;
+	}
+
+	.subtitle {
+		font-size: 1.2rem;
+		opacity: 0.9;
+		margin-bottom: 0;
+	}
+
+	.form-section {
+		padding: 4rem 0;
+		background: #f8f9fa;
+	}
+
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.form-intro {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.form-intro h2 {
+		color: #2f8999;
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
+	}
+
+	.form-intro p {
+		font-size: 1.2rem;
+		color: #616d69;
+		line-height: 1.6;
+	}
+
+	.info-section {
+		padding: 4rem 0;
+		background: white;
+	}
+
+	.info-section h2 {
+		text-align: center;
+		color: #2f8999;
+		font-size: 2.5rem;
+		margin-bottom: 3rem;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
+	}
+
+	.info-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.info-card {
+		background: #f8f9fa;
+		padding: 2rem;
+		border-radius: 10px;
+		border-left: 5px solid #2f8999;
+		box-shadow: 0 4px 15px rgba(47, 137, 153, 0.1);
+	}
+
+	.info-card h3 {
+		color: #2f8999;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
+	}
+
+	.info-card p {
+		color: #616d69;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.contact-info {
+		background: linear-gradient(135deg, #2f8999 0%, #616d69 100%);
+		color: white;
+		padding: 4rem 0;
+	}
+
+	.contact-info h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		margin-bottom: 3rem;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
+	}
+
+	.contact-details {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		text-align: center;
+	}
+
+	.contact-item h3 {
+		font-size: 1.3rem;
+		margin-bottom: 0.5rem;
+		font-family: 'Merriweather', serif;
+		font-weight: 700;
+	}
+
+	.contact-item p {
+		font-size: 1.1rem;
+		opacity: 0.9;
+		margin: 0;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			flex-direction: column;
+			text-align: center;
+			padding: 3rem 1rem;
+		}
+		
+		.hero-content {
+			padding-right: 0;
+			margin-bottom: 2rem;
+		}
+		
+		.hero h1 {
+			font-size: 2.5rem;
+		}
+		
+		.hero h2 {
+			font-size: 1.5rem;
+		}
+		
+		.info-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.contact-details {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,751 @@
+---
+// Schwangeren-Massage Formular-Komponente
+export interface Props {
+  fromMailAddress?: string;
+  replyToAddress?: string;
+  formMailSubject?: string;
+  emailBodyText?: string;
+  customerEmailBodyText?: string;
+}
+
+const {
+  fromMailAddress = 'anneli@mama-moon-doula.com',
+  replyToAddress = 'anneli@mama-moon-doula.com',
+  formMailSubject = 'Anfrage für Schwangeren-Massage - Mama-Moon-Doula',
+  emailBodyText = 'Neue Anfrage für Schwangeren-Massage von: {ReferrerURL}\n\nName: {Name}\nE-Mail: {SubmitterMailAddress}\nTelefon: {Telefon}\nSchwangerschaftswoche: {Schwangerschaftswoche}\nGewünschter Termin: {GewuenschterTermin}\nNachricht: {Message}',
+  customerEmailBodyText = 'Vielen Dank für Ihre Anfrage für eine Schwangeren-Massage!\n\nWir haben Ihre Anfrage erhalten und werden uns schnellstmöglich bei Ihnen melden.\n\nIhre Angaben:\nName: {Name}\nE-Mail: {SubmitterMailAddress}\nTelefon: {Telefon}\nSchwangerschaftswoche: {Schwangerschaftswoche}\nGewünschter Termin: {GewuenschterTermin}\nNachricht: {Message}\n\nMit herzlichen Grüßen\nAnneli Pfeifer - Mama-Moon-Doula'
+} = Astro.props;
+---
+
+<div class="form-container">
+  <h3 class="form-title">
+    Anfrage für Schwangeren-Massage
+  </h3>
+  
+  <form id="schwangerenMassageForm" class="massage-form" enctype="multipart/form-data">
+    <!-- Persönliche Daten -->
+    <div class="form-section-header">
+      <h4>Persönliche Daten</h4>
+    </div>
+    
+    <div class="form-group">
+      <label for="name" class="form-label">
+        Ihr Name
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="form-input"
+        placeholder="Ihr vollständiger Name"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="form-label">
+        Ihre E-Mail-Adresse
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-input"
+        placeholder="ihre.email@beispiel.de"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="telefon" class="form-label">
+        Ihre Telefonnummer
+      </label>
+      <input
+        type="tel"
+        id="telefon"
+        name="telefon"
+        class="form-input"
+        placeholder="+49 123 456789"
+      >
+    </div>
+
+    <!-- Schwangerschaftsdaten -->
+    <div class="form-section-header">
+      <h4>Schwangerschaftsdaten</h4>
+    </div>
+
+    <div class="form-group">
+      <label for="schwangerschaftswoche" class="form-label">
+        Aktuelle Schwangerschaftswoche
+      </label>
+      <select
+        id="schwangerschaftswoche"
+        name="schwangerschaftswoche"
+        class="form-select"
+      >
+        <option value="">Bitte wählen...</option>
+        <option value="1-4">1-4 SSW (Frühe Schwangerschaft)</option>
+        <option value="5-8">5-8 SSW</option>
+        <option value="9-12">9-12 SSW (1. Trimester)</option>
+        <option value="13-16">13-16 SSW</option>
+        <option value="17-20">17-20 SSW</option>
+        <option value="21-24">21-24 SSW</option>
+        <option value="25-28">25-28 SSW (3. Trimester)</option>
+        <option value="29-32">29-32 SSW</option>
+        <option value="33-36">33-36 SSW</option>
+        <option value="37-40">37-40 SSW (Terminbereich)</option>
+        <option value="40+">40+ SSW (Übertragung)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="geburtsdatum" class="form-label">
+        Voraussichtlicher Geburtstermin
+      </label>
+      <input
+        type="date"
+        id="geburtsdatum"
+        name="geburtsdatum"
+        class="form-input"
+      >
+    </div>
+
+    <!-- Geburtsplanung -->
+    <div class="form-section-header">
+      <h4>Geburtsplanung</h4>
+    </div>
+
+    <div class="form-group">
+      <label for="geburtsort" class="form-label">
+        Geplanter Geburtsort
+      </label>
+      <select
+        id="geburtsort"
+        name="geburtsort"
+        class="form-select"
+      >
+        <option value="">Bitte wählen...</option>
+        <option value="Krankenhaus">Krankenhaus</option>
+        <option value="Geburtshaus">Geburtshaus</option>
+        <option value="Hausgeburt">Hausgeburt</option>
+        <option value="noch unentschieden">Noch unentschieden</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="gewuenschterTermin" class="form-label">
+        Gewünschter Termin für die Massage
+      </label>
+      <input
+        type="datetime-local"
+        id="gewuenschterTermin"
+        name="gewuenschterTermin"
+        class="form-input"
+      >
+    </div>
+
+    <!-- Massage-Details -->
+    <div class="form-section-header">
+      <h4>Massage-Details</h4>
+    </div>
+
+    <div class="form-group">
+      <label for="massageArt" class="form-label">
+        Art der gewünschten Massage
+      </label>
+      <select
+        id="massageArt"
+        name="massageArt"
+        class="form-select"
+      >
+        <option value="">Bitte wählen...</option>
+        <option value="Schwangerenmassage">Schwangerenmassage</option>
+        <option value="Rückbildungsmassage">Rückbildungsmassage</option>
+        <option value="Ganzkörperölmassage">Ganzkörperölmassage (Mama-Abhyanga)</option>
+        <option value="Milchstrich">Milchstrich zur Unterstützung des Milchflusses</option>
+        <option value="Belly-Binding">Belly-Binding</option>
+        <option value="Kombination">Kombination verschiedener Massagen</option>
+      </select>
+    </div>
+
+    <!-- Zusätzliche Informationen -->
+    <div class="form-section-header">
+      <h4>Zusätzliche Informationen</h4>
+    </div>
+
+    <div class="form-group">
+      <label for="beschwerden" class="form-label">
+        Aktuelle Beschwerden oder Wünsche
+      </label>
+      <textarea
+        id="beschwerden"
+        name="beschwerden"
+        rows="3"
+        class="form-textarea"
+        placeholder="Beschreiben Sie Ihre aktuellen Beschwerden oder spezielle Wünsche für die Massage..."
+      ></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="message" class="form-label">
+        Weitere Nachricht
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        rows="3"
+        class="form-textarea"
+        placeholder="Haben Sie noch weitere Fragen oder Wünsche?"
+      ></textarea>
+    </div>
+    
+    <div class="form-group">
+      <button
+        type="button"
+        id="toggleAttachmentBtn"
+        class="attachment-toggle"
+      >
+        <svg id="attachmentIcon" class="attachment-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+        </svg>
+        Datei anhängen (optional)
+      </button>
+      
+      <div id="attachmentSection" class="attachment-section hidden">
+        <label for="attachments" class="form-label">
+          Anhang (bis zu 10 MB)
+        </label>
+        <input
+          type="file"
+          id="attachments"
+          name="attachments"
+          class="form-input"
+          accept=".pdf,.jpg,.jpeg,.png,.heic,.heif,.docx"
+        >
+      </div>
+    </div>
+
+    <div class="form-notice">
+      <p>
+        <strong>Hinweis:</strong> Meine Leistungen dienen ausschließlich dem seelischen und körperlichen Wohlbefinden und ersetzen keinesfalls die Betreuung durch eine Hebamme oder ärztliche Behandlung.
+      </p>
+    </div>
+
+    <button
+      type="submit"
+      id="submitBtn"
+      class="submit-button"
+    >
+      Anfrage senden
+    </button>
+  </form>
+  
+  <div id="formMessage" class="form-message hidden">
+    <div id="successMessage" class="message success-message hidden">
+      <p id="successText"></p>
+    </div>
+    <div id="errorMessage" class="message error-message hidden">
+      <p id="errorText"></p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .form-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(47, 137, 153, 0.15);
+    padding: 3rem;
+    border: 2px solid #2f8999;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .form-title {
+    color: #2f8999;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #2f8999;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+  }
+
+  .massage-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: #fafbfc;
+    border-radius: 12px;
+    border: 1px solid #e8ecf0;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-group:hover {
+    background: #f8f9fa;
+    border-color: #2f8999;
+    box-shadow: 0 2px 8px rgba(47, 137, 153, 0.1);
+  }
+
+  .form-label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .form-label::before {
+    content: "•";
+    color: #2f8999;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .form-section-header {
+    grid-column: 1 / -1;
+    margin: 2rem 0 1rem 0;
+    padding: 1rem 0;
+    border-bottom: 2px solid #2f8999;
+  }
+
+  .form-section-header h4 {
+    color: #2f8999;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #e0e6ed;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: #2f8999;
+    box-shadow: 0 0 0 4px rgba(47, 137, 153, 0.15);
+    transform: translateY(-2px);
+    background: #fafbfc;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+  }
+
+  .attachment-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #2f8999;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .attachment-toggle:hover {
+    color: #257a8a;
+  }
+
+  .attachment-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .attachment-section {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 2px solid #e0e6ed;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .attachment-section.hidden {
+    display: none;
+  }
+
+  .form-notice {
+    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 6px solid #2f8999;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(47, 137, 153, 0.1);
+  }
+
+  .form-notice p {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  .submit-button {
+    background: linear-gradient(135deg, #2f8999 0%, #257a8a 100%);
+    color: white;
+    border: none;
+    padding: 1.25rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(47, 137, 153, 0.3);
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 1rem;
+  }
+
+  .submit-button:hover {
+    background: linear-gradient(135deg, #257a8a 0%, #1e6b7a 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(47, 137, 153, 0.4);
+  }
+
+  .submit-button:active {
+    transform: translateY(0);
+  }
+
+  .submit-button:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .form-message {
+    margin-top: 1.5rem;
+  }
+
+  .form-message.hidden {
+    display: none;
+  }
+
+  .message {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .success-message {
+    background: #d4edda;
+    border: 2px solid #c3e6cb;
+    color: #155724;
+  }
+
+  .error-message {
+    background: #f8d7da;
+    border: 2px solid #f5c6cb;
+    color: #721c24;
+  }
+
+  .message.hidden {
+    display: none;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+
+    .form-title {
+      font-size: 1.5rem;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .submit-button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  /* Grid Layout für bessere Organisation */
+  @media (min-width: 768px) {
+    .massage-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Sektions-Header immer volle Breite */
+    .form-section-header {
+      grid-column: 1 / -1;
+    }
+
+    /* Persönliche Daten - Name, E-Mail, Telefon in einer Reihe */
+    .form-group:nth-of-type(1),
+    .form-group:nth-of-type(2),
+    .form-group:nth-of-type(3) {
+      grid-column: span 1;
+    }
+
+    /* Schwangerschaftswoche und Geburtsdatum nebeneinander */
+    .form-group:nth-of-type(4),
+    .form-group:nth-of-type(5) {
+      grid-column: span 1;
+    }
+
+    /* Geburtsort und Termin nebeneinander */
+    .form-group:nth-of-type(6),
+    .form-group:nth-of-type(7) {
+      grid-column: span 1;
+    }
+
+    /* Massage-Art - volle Breite */
+    .form-group:nth-of-type(8) {
+      grid-column: 1 / -1;
+    }
+
+    /* Beschwerden und Nachricht - volle Breite */
+    .form-group:nth-of-type(9),
+    .form-group:nth-of-type(10) {
+      grid-column: 1 / -1;
+    }
+
+    /* Attachment - volle Breite */
+    .form-group:nth-of-type(11) {
+      grid-column: 1 / -1;
+    }
+
+    .form-notice {
+      grid-column: 1 / -1;
+    }
+
+    .submit-button {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
+
+<script define:vars={{ fromMailAddress, replyToAddress, formMailSubject, emailBodyText, customerEmailBodyText }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('schwangerenMassageForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMessage = document.getElementById('formMessage');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const successText = document.getElementById('successText');
+    const errorText = document.getElementById('errorText');
+    const attachmentsInput = document.getElementById('attachments');
+    const toggleAttachmentBtn = document.getElementById('toggleAttachmentBtn');
+    const attachmentSection = document.getElementById('attachmentSection');
+    const attachmentIcon = document.getElementById('attachmentIcon');
+
+    // Debug: Prüfen ob alle Elemente gefunden wurden
+    console.log('Form elements found:', {
+      form: !!form,
+      submitBtn: !!submitBtn,
+      formMessage: !!formMessage,
+      successMessage: !!successMessage,
+      errorMessage: !!errorMessage,
+      successText: !!successText,
+      errorText: !!errorText,
+      attachmentsInput: !!attachmentsInput,
+      toggleAttachmentBtn: !!toggleAttachmentBtn,
+      attachmentSection: !!attachmentSection,
+      attachmentIcon: !!attachmentIcon
+    });
+
+    // Test: Einfacher Click-Handler für den Submit-Button
+    if (submitBtn) {
+      submitBtn.addEventListener('click', function(e) {
+        console.log('Submit button clicked!');
+      });
+    }
+
+    function showMessage(message, isSuccess) {
+      formMessage.classList.remove('hidden');
+      successMessage.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+      
+      if (isSuccess) {
+        successText.textContent = message;
+        successMessage.classList.remove('hidden');
+      } else {
+        errorText.textContent = message;
+        errorMessage.classList.remove('hidden');
+      }
+    }
+
+    function hideMessage() {
+      formMessage.classList.add('hidden');
+    }
+
+    if (!form) {
+      console.error('Form element not found!');
+      return;
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      console.log('Form submit triggered');
+      
+      const formData = new FormData(form);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const telefon = formData.get('telefon');
+      const schwangerschaftswoche = formData.get('schwangerschaftswoche');
+      const geburtsdatum = formData.get('geburtsdatum');
+      const geburtsort = formData.get('geburtsort');
+      const gewuenschterTermin = formData.get('gewuenschterTermin');
+      const massageArt = formData.get('massageArt');
+      const beschwerden = formData.get('beschwerden');
+      const message = formData.get('message');
+      
+      console.log('Form data:', { name, email, telefon, schwangerschaftswoche });
+      
+      const files = attachmentsInput && attachmentsInput.files ? Array.from(attachmentsInput.files) : [];
+
+      // einfache Validierung: Gesamtgröße <= 10 MB, max 1 Datei
+      const maxTotalSize = 10 * 1024 * 1024;
+      const maxFiles = 1;
+      const allowedFormats = ['.pdf', '.jpg', '.jpeg', '.png', '.heic', '.heif', '.docx'];
+      
+      const totalSize = files.reduce((sum, f) => sum + f.size, 0);
+      if (files.length > maxFiles) {
+        showMessage(`Bitte maximal ${maxFiles} Datei auswählen.`, false);
+        return;
+      }
+      if (totalSize > maxTotalSize) {
+        showMessage('Die Dateigröße des Anhangs überschreitet 10 MB.', false);
+        return;
+      }
+      
+      // Dateiformat-Validierung
+      for (const file of files) {
+        const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+        if (!allowedFormats.includes(fileExtension)) {
+          showMessage(`Das Dateiformat ${fileExtension} ist nicht erlaubt. Erlaubte Formate: PDF, JPG, PNG, HEIC, DOCX`, false);
+          return;
+        }
+      }
+
+      // Referrer URL ermitteln
+      const referrerURL = document.referrer || window.location.href;
+      
+      // Button deaktivieren und Text ändern
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wird gesendet...';
+      
+      try {
+        const requestFormData = new FormData();
+        requestFormData.append('name', name);
+        requestFormData.append('email', email);
+        requestFormData.append('telefon', telefon || '');
+        requestFormData.append('schwangerschaftswoche', schwangerschaftswoche);
+        requestFormData.append('geburtsdatum', geburtsdatum || '');
+        requestFormData.append('geburtsort', geburtsort || '');
+        requestFormData.append('gewuenschterTermin', gewuenschterTermin || '');
+        requestFormData.append('massageArt', massageArt || '');
+        requestFormData.append('beschwerden', beschwerden || '');
+        requestFormData.append('message', message || '');
+        requestFormData.append('referrerURL', referrerURL);
+        requestFormData.append('fromMailAddress', fromMailAddress);
+        requestFormData.append('replyToAddress', replyToAddress);
+        requestFormData.append('formMailSubject', formMailSubject);
+        requestFormData.append('emailBodyText', emailBodyText);
+        requestFormData.append('customerEmailBodyText', customerEmailBodyText);
+        if (files.length === 1) {
+          requestFormData.append('attachments', files[0], files[0].name);
+        }
+
+        console.log('Sending request to /api/schwangeren-massage');
+        const response = await fetch('/api/schwangeren-massage', {
+          method: 'POST',
+          body: requestFormData
+        });
+        
+        console.log('Response status:', response.status);
+        const result = await response.json();
+        console.log('Response result:', result);
+        
+        if (result.success) {
+          showMessage(result.message, true);
+          form.reset();
+        } else {
+          showMessage(result.message, false);
+        }
+      } catch (error) {
+        console.error('Fetch error:', error);
+        showMessage('Es gab einen Fehler beim Senden Ihrer Anfrage. Bitte versuchen Sie es später erneut.', false);
+      } finally {
+        // Button wieder aktivieren
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Anfrage senden';
+        }
+      }
+    });
+
+    // Nachricht ausblenden, wenn Benutzer erneut tippt
+    const inputs = form.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+      input.addEventListener('input', hideMessage);
+    });
+
+    // Attachment Toggle Funktionalität
+    toggleAttachmentBtn.addEventListener('click', function() {
+      const isHidden = attachmentSection.classList.contains('hidden');
+      
+      if (isHidden) {
+        attachmentSection.classList.remove('hidden');
+        attachmentIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+        toggleAttachmentBtn.innerHTML = '<svg id="attachmentIcon" class="attachment-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Anhang ausblenden';
+      } else {
+        attachmentSection.classList.add('hidden');
+        attachmentIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>';
+        toggleAttachmentBtn.innerHTML = '<svg id="attachmentIcon" class="attachment-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg> Datei anhängen (optional)';
+        // Datei-Input zurücksetzen, wenn ausgeblendet
+        if (attachmentsInput) {
+          attachmentsInput.value = '';
+        }
+      }
+    });
+  });
+</script>
